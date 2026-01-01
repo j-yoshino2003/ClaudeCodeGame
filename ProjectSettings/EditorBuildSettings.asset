@@ -6,8 +6,20 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/@ClaudeCodeGame/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/@ClaudeCodeGame/Scenes/0_StartUp/StartUpScene.unity
+    guid: e782e0d0fea492f449db071c10385760
+  - enabled: 1
+    path: Assets/@ClaudeCodeGame/Scenes/1_Title/TitleScene.unity
+    guid: c864c6610f13d20409ab868678f27d97
+  - enabled: 1
+    path: Assets/@ClaudeCodeGame/Scenes/2_MainGame/MainGameScene.unity
+    guid: 6eca65e943e537740a1baa888566be33
+  - enabled: 1
+    path: Assets/@ClaudeCodeGame/Scenes/3_Game/GameScene.unity
+    guid: c354be74c40c2f64ea432a84dd7965ff
+  - enabled: 1
+    path: Assets/@ClaudeCodeGame/Scenes/4_Result/ResultScene.unity
+    guid: bf8fe6dc76ae78e4298e745f3541be6a
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
