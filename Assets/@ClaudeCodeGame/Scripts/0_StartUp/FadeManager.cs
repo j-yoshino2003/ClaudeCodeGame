@@ -36,7 +36,8 @@ public class FadeManager : MonoBehaviour
         if (m_Instance == null)
         {
             m_Instance = this;
-            DontDestroyOnLoad(gameObject);
+            // ルートオブジェクト (Canvas) に DontDestroyOnLoad を適用.
+            DontDestroyOnLoad(transform.root.gameObject);
             m_FadeImage = GetComponent<Image>();
 
             // シーン読み込み完了時のコールバック登録.
@@ -111,7 +112,8 @@ public class FadeManager : MonoBehaviour
                 break;
             }
 
-            elapsed += Time.unscaledDeltaTime;
+            // 1フレームの最大値を制限 (シーン読み込み時の大きな値を防ぐ).
+            elapsed += Mathf.Min(Time.unscaledDeltaTime, 0.1f);
             float alpha = Mathf.Lerp(_From, _To, Mathf.Clamp01(elapsed / m_FadeDuration));
             color.a = alpha;
             m_FadeImage.color = color;
