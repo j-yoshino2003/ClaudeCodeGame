@@ -102,8 +102,8 @@ public class FadeManager : MonoBehaviour
     IEnumerator FadeCoroutine(float _From, float _To, Action _OnComplete)
     {
         m_IsFading = true;
-        float elapsed = 0f;
-        Color color = m_FadeImage.color;
+        var elapsed = 0f;
+        var color = m_FadeImage.color;
 
         while (true)
         {
@@ -114,8 +114,7 @@ public class FadeManager : MonoBehaviour
 
             // 1フレームの最大値を制限 (シーン読み込み時の大きな値を防ぐ).
             elapsed += Mathf.Min(Time.unscaledDeltaTime, 0.1f);
-            float alpha = Mathf.Lerp(_From, _To, Mathf.Clamp01(elapsed / FadeDuration));
-            color.a = alpha;
+            color.a = Mathf.Lerp(_From, _To, Mathf.Clamp01(elapsed / FadeDuration));
             m_FadeImage.color = color;
             yield return null;
         }
