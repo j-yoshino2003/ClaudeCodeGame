@@ -18,7 +18,7 @@ public class FadeManager : MonoBehaviour
     Image m_FadeImage;
 
     [SerializeField]
-    float m_FadeDuration = 0.5f;
+    float FadeDuration = 0.5f;
 
     bool m_IsFading = false;
 
@@ -107,14 +107,14 @@ public class FadeManager : MonoBehaviour
 
         while (true)
         {
-            if (elapsed >= m_FadeDuration)
+            if (elapsed >= FadeDuration)
             {
                 break;
             }
 
             // 1フレームの最大値を制限 (シーン読み込み時の大きな値を防ぐ).
             elapsed += Mathf.Min(Time.unscaledDeltaTime, 0.1f);
-            float alpha = Mathf.Lerp(_From, _To, Mathf.Clamp01(elapsed / m_FadeDuration));
+            float alpha = Mathf.Lerp(_From, _To, Mathf.Clamp01(elapsed / FadeDuration));
             color.a = alpha;
             m_FadeImage.color = color;
             yield return null;
